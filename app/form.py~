@@ -3,6 +3,8 @@ from flask.ext.wtf import Form
 from wtforms.fields import TextField
 
 class SimpleForm(Form):
-    brand = TextField('Brand name')
     clothing_type = TextField('Clothing type')
+    brand = TextField('Brand name')
     colour = TextField('Colour')
+    price = TextField('Price')
+    date_pruchased = TextField('Date of Purchase')

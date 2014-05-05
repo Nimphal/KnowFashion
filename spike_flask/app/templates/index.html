@@ -1,9 +1,12 @@
 <!DOCTYPE html>
-<html>
-<head>
-    <title></title>
-</head>
-<body>
-
-</body>
-</html>
+{% extends "base.html" %}
+{% block content %}
+<form action="" method="post" name="simple">
+Brand:
+{{form.brand}}<br>
+Clothing type:
+{{form.clothing_type}}<br>
+Colour:
+{{form.colour}}<br>
+<div id='images'></div>
+{% endblock %}

@@ -1,0 +1,6 @@
+<!DOCTYPE html>
+{% extends "base.html" %}
+{% block content %}
+<h1>Welcome to KnowFashion! </h1>
+<h2>Would you like to Submit a new artcile of clothing ot Browse what users have submitted?</h2>
+{% endblock %}

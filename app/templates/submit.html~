@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+{% extends "base.html" %}
+{% block content %}
+<form action="" method="post" name="simple">
+<strong>Brand:</strong>
+<br>
+{{form.brand}}<br>
+<strong>Clothing type:</strong>
+<br>
+{{form.clothing_type}}<br>
+<strong>Colour:</strong>
+<br>
+{{form.colour}}<br>
+<strong>Price:</strong>
+<br>
+{{form.price}}<br>
+<strong>Date of Purchase:</strong>
+<br>
+{{form.date_purchased}}
+{% endblock %}
