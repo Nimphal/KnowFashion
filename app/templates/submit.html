@@ -1,21 +1,42 @@
 <!DOCTYPE html>
 {% extends "base.html" %}
 {% block content %}
-<form action="" method="post" name="simple">
+<form method="POST" enctype="multipart/form-data">
 <p>Please submit as much information about the article of clothing as you can</p>
 <strong>Brand:</strong>
 <br>
 {{form.brand}}<br>
+
+<strong>Store:</strong>
+<br>
+{{form.store}}<br>
+
 <strong>Clothing type:</strong>
 <br>
 {{form.clothing_type}}<br>
+
 <strong>Colour:</strong>
 <br>
 {{form.colour}}<br>
+
+<strong>Country:</strong>
+<br>
+{{form.country}}<br>
+
 <strong>Price:</strong>
 <br>
-{{form.price}}<br>
+{{form.price}}
+{{form.currency}}
+<br>
+
 <strong>Date of Purchase:</strong>
 <br>
-{{form.date_purchased}}
+{{form.date_purchased}}<br>
+
+<!--<input name="upload" type="file">
+<button type="upload">Upload</button>-->
+
+<p><input type="submit" value="Submit form"></p>
+</form>
+<script src="{{url_for('static', filename='submit.js')}}"></script>
 {% endblock %}
