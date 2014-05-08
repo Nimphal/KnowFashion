@@ -1,6 +1,7 @@
 __author__ = 'nevelina'
 from flask.ext.wtf import Form
 from wtforms.fields import TextField, SelectField, DecimalField
+from wtforms import validators
 
 #this would ideally be generated and updated by the users
 brand_choices = [
@@ -77,14 +78,36 @@ country_choices = [
 ]
 	
 class SimpleForm(Form):
-    clothing_type = SelectField('Clothing type', choices = clothing_choices)
-    brand = SelectField('Brand name', choices = brand_choices)
-    store = SelectField('Store name', choices = store_choices)
-    colour = SelectField('Colour', choices = colour_choices)
-    country = SelectField('Country', choices = country_choices)
-    price = DecimalField('Price')
-    currency = SelectField('Currency', choices = currency_choices)    
-    date_purchased = TextField('Date of Purchase')
+    clothing_type = SelectField('Clothing type', 
+    	[validators.Required()],
+    	choices = clothing_choices, 
+    	
+    )
+    brand = SelectField('Brand name', 
+		[validators.Required()],
+    	choices = brand_choices,
+
+   	)
+    store = SelectField('Store name', 
+    	choices = store_choices,
+    )
+    colour = SelectField('Colour', 
+		[validators.Required()],
+    	choices = colour_choices,
+
+    )
+    country = SelectField('Country', 
+		[validators.Required()],
+    	choices = country_choices,
+
+    )
+    price = DecimalField('Price',
+    )
+    currency = SelectField('Currency', 
+    	choices = currency_choices,
+    )    
+    date_purchased = TextField('Date of Purchase',
+    )
     
     
     
