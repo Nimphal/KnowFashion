@@ -1,0 +1,129 @@
+/* Whole body customisation */
+
+body {
+    background-color: #1C1C1C;
+    color: white;
+
+}
+
+/* Navigation bar customisation */
+
+.navbar-default {
+    /* background-color: #0B615E; */
+    background: -webkit-linear-gradient(left, #0B615E , #9F81F7); /* For Safari 5.1 to 6.0 */
+    background: -o-linear-gradient(right, #0B615E, #9F81F7); /* For Opera 11.1 to 12.0 */
+    background: -moz-linear-gradient(right, #0B615E, #9F81F7); /* For Firefox 3.6 to 15 */
+    background: linear-gradient(to right, #000000 , #9F81F7); /* Standard syntax */
+
+    border-color: #1C1C1C;
+}
+
+.navbar-default .navbar-brand {
+    color: #F2FBEF;
+}
+
+.navbar-default .navbar-brand:hover,
+.navbar-default .navbar-brand:focus {
+    color: #9F81F7;
+}
+
+.navbar-default .navbar-nav > li > a {
+    color: white;
+}
+.navbar-default .navbar-nav > li > a:hover,
+.navbar-default .navbar-nav > li > a:focus {
+    color: #9F81F7;
+}
+.navbar-default .navbar-nav > .active > a,
+.navbar-default .navbar-nav > .active > a:hover,
+.navbar-default .navbar-nav > .active > a:focus {
+    color: #555;
+    background-color: #9F81F7;
+}
+.navbar-default .navbar-nav > .open > a,
+.navbar-default .navbar-nav > .open > a:hover,
+.navbar-default .navbar-nav > .open > a:focus {
+    color: #555;
+    background-color: #D5D5D5;
+}
+
+.navbar-default .navbar-toggle {
+    border-color: #DDD;
+}
+.navbar-default .navbar-toggle:hover,
+.navbar-default .navbar-toggle:focus {
+    background-color: #DDD;
+}
+.navbar-default .navbar-toggle .icon-bar {
+    background-color: #CCC;
+}
+@media (max-width: 767px) {
+    .navbar-default .navbar-nav .open .dropdown-menu > li > a {
+        color: #777;
+    }
+    .navbar-default .navbar-nav .open .dropdown-menu > li > a:hover,
+    .navbar-default .navbar-nav .open .dropdown-menu > li > a:focus {
+        color: #333;
+    }
+}
+
+/* Jumbotron customisation */
+
+.jumbotron {
+    background-color: #1C1C1C;
+    color: white;
+    text-align: center;
+
+}
+
+/* Buttons customisation */
+
+.btn, .btn-defaulr, .btn-lg, .btn-block {
+    background-color: #9F81F7;
+    border-color: #9F81F7;
+    color: white;
+}
+
+.btn-block {
+    width: 50%;
+    margin: auto;
+}
+a {
+    color: white;
+}
+
+/* Field customisation */
+
+.select2-drop-active {
+  border-color: #9F81F7;
+}
+
+.select2-container-active .select2-choice,
+.select2-container-multi.select2-container-active .select2-choices {
+  border-color: #9F81F7;
+  outline: none;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(82, 168, 236, 0.6);
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(82, 168, 236, 0.6);
+  -webkit-transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+  transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+}
+
+.select2-drop-auto-width,
+.select2-drop.select2-drop-above.select2-drop-active {
+  border-top-color: #9F81F7;
+}
+
+/**
+ * Adjust Select2's choices hover and selected styles to match Bootstrap 3's default dropdown styles.
+ */
+.select2-results .select2-highlighted {
+  color: white;
+  background-color: #642EFE;
+}
+
+.form-control:focus {
+  border-color: #9F81F7;
+  outline: 0;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(102, 175, 233, .6);
+          box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(102, 175, 233, .6);
+}

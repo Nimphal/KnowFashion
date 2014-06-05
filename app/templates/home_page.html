@@ -1,6 +1,14 @@
 <!DOCTYPE html>
 {% extends "base.html" %}
 {% block content %}
-<h1>Welcome to KnowFashion! </h1>
-<h2>Would you like to <a href='/submit'>Submit</a> a new artcile of clothing ot <a href='/browse'>Browse</a> what users have submitted?</h2>
+<div class="jumbotron">
+    <h1>Welcome to KnowFashion! </h1>
+    <h2> <a class="btn btn-default btn-lg btn-block" href="/submit" role="button">Submit</a>
+        a new article of clothing <br>
+        <br>OR<br><br>
+        <a class="btn btn-default btn-lg btn-block" href="/browse" role="button">Browse</a>
+        what users have submitted</h2>
+</div>
 {% endblock %}
+
+        <a class="btn btn-default btn-lg btn-block" href="/submit" role="button">Submit</a>
