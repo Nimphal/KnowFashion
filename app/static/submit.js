@@ -1,12 +1,21 @@
 $( document ).ready(function() {
-	$('#brand').select2({
-    minimumInputLength: 3
-});
-	$('#clothing_type').select2();
-	$('#colour').select2();
-	$('#country').select2();
-	$('#store').select2();
-	$('#currency').select2();
+
+	$('#clothing_type').select2({
+	placeholder: "Select clothing type"
+	});
+
+	$('#colour').select2({
+	placeholder: "Select colour"
+	});
+
+	$('#country').select2({
+	placeholder: "Select country"
+	});
+
+	$('#currency').select2({
+	placeholder: "Select currency"
+	});
+
 	console.log( "ready!" );
 });
 

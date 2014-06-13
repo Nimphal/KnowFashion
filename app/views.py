@@ -7,7 +7,7 @@ from werkzeug.utils import secure_filename
 from flask.ext.uploads import delete, init, save, Upload
 import os
 from app import app
-from form import SimpleForm
+from form import SimpleForm, BrowseForm
 from datetime import datetime
 
 from elasticsearch import Elasticsearch
@@ -39,32 +39,13 @@ def image(filename):
 
     return send_from_directory('.', filename)
 
-WIDTH = 1000
-HEIGHT = 800
+
 
 @app.route('/browse', methods=['GET', 'POST'])
 def browse():
-    images = []
-    for root, dirs, files in os.walk('.'):
-        for filename in [os.path.join(root, name) for name in files]:
-            if not filename.endswith('.jpg'):
-                continue
-            im = Image.open(filename)
-            w, h = im.size
-            aspect = 1.0*w/h
-            if aspect > 1.0*WIDTH/HEIGHT:
-                width = min(w, WIDTH)
-                height = width/aspect
-            else:
-                height = min(h, HEIGHT)
-                width = height*aspect
-            images.append({
-                'width': int(width),
-                'height': int(height),
-                'src': filename
-            })
+    form = BrowseForm(request.form)
     return render_template('browse.html',
-                           title='Browse user uploaded things', **{'images': images})
+                           title='Browse user uploaded things', form=form)
 
 
 def allowed_file(filename):
@@ -109,5 +90,5 @@ def submit():
 
 @app.route('/thankyou', methods=['GET', 'POST'])
 def thankyou():
-    return render_template('thankyou.html', title='Thank you!')
 
+    return render_template('thankyou.html', title='Thank you!')

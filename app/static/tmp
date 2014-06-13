@@ -1,0 +1,13 @@
+url = 'http://localhost:9200/garments/_search'
+var results;
+
+    $.ajax({
+        url: url,
+        dataType: 'json',
+        type: 'POST',
+        data: {"query":{"filtered":{"query":{"match_all":{}},"filter":{"bool":{"must":[{"term":{"country":"china"}}]}}}}},
+        success: function (data, status, jqXHR) {
+            alert('go');
+
+        }
+    });

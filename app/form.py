@@ -1,9 +1,10 @@
 __author__ = 'nevelina'
 from flask.ext.wtf import Form
+from app import app
 from wtforms.fields import TextField, SelectField, DecimalField
 from wtforms import validators
 
-#this would ideally be generated and updated by the users
+# this would ideally be generated and updated by the users
 brand_choices = [
     ('dorothy perkins', 'Dorothy Perkins'),
     ('quiz', 'Quiz'),
@@ -11,6 +12,7 @@ brand_choices = [
 ]
 
 colour_choices = [
+    ('',''),
     ('red', 'Red'),
     ('blue', 'Blue'),
     ('green', 'Green'),
@@ -32,6 +34,7 @@ colour_choices = [
 ]
 
 clothing_choices = [
+    ('',''),
     ('accessories', 'Accessories'),
     ('bag', 'Bag'),
     ('coat', 'Coat'),
@@ -59,22 +62,10 @@ clothing_choices = [
     ('top', 'Top'),
 ]
 
-currency_choices = [
-    ('eur', 'EUR'),
-    ('gbp', 'GBP'),
-    ('usd', 'USD'),
-]
-
 store_choices = [
     ('debenhams', 'Debenhams'),
     ('house of fraser', 'House of Fraser'),
     ('asos', 'ASOS'),
-]
-
-country_choices = [
-    ('china', 'China'),
-    ('united kingdom', 'United Kingdom'),
-    ('vietnam', 'Vietnam'),
 ]
 
 
@@ -84,13 +75,10 @@ class SimpleForm(Form):
                                 choices=clothing_choices,
 
     )
-    brand = SelectField('Brand name',
-                        [validators.Required()],
-                        choices=brand_choices,
-
+    brand = TextField('Brand name',
+                      [validators.Required()],
     )
-    store = SelectField('Store name',
-                        choices=store_choices,
+    store = TextField('Store name',
     )
     colour = SelectField('Colour',
                          [validators.Required()],
@@ -99,20 +87,29 @@ class SimpleForm(Form):
     )
     country = SelectField('Country',
                           [validators.Required()],
-                          choices=country_choices,
-
+                          choices=app.config['COUNTRY_CHOICES'],
     )
     price = DecimalField('Price',
     )
     currency = SelectField('Currency',
-                           choices=currency_choices,
+                           choices=app.config['CURRENCY_CHOICES'],
     )
     date_purchased = TextField('Date of Purchase',
     )
-    
-    
 
-    
-    
-    
-    
+
+class BrowseForm(Form):
+    clothing_type = SelectField('Clothing type',
+                                choices=clothing_choices,
+
+    )
+    brand = TextField('Brand name',
+    )
+    store = TextField('Store name',
+    )
+    colour = SelectField('Colour',
+                         choices=colour_choices,
+    )
+    country = SelectField('Country',
+                          choices=app.config['COUNTRY_CHOICES'],
+    )
