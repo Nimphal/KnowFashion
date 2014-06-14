@@ -12,34 +12,12 @@ from datetime import datetime
 
 from elasticsearch import Elasticsearch
 
-es = Elasticsearch()
+es = Elasticsearch(hosts=[{'host': 'localhost', 'port': 9201}])
 
 
 @app.route('/', methods=['GET', 'POST'])
 def home_page():
     return render_template('home_page.html', title='KnowFashion Home')
-
-@app.route('/<path:filename>')
-def image(filename):
-    try:
-        w = int(request.args['w'])
-        h = int(request.args['h'])
-    except (KeyError, ValueError):
-        return send_from_directory('.', filename)
-
-    try:
-        im = Image.open(filename)
-        im.thumbnail((w, h), Image.ANTIALIAS)
-        io = StringIO.StringIO()
-        im.save(io, format='JPEG')
-        return Response(io.getvalue(), mimetype='image/jpeg')
-
-    except IOError:
-        abort(404)
-
-    return send_from_directory('.', filename)
-
-
 
 @app.route('/browse', methods=['GET', 'POST'])
 def browse():

@@ -1,19 +1,23 @@
 $( document ).ready(function() {
 
 	$('#clothing_type').select2({
-	placeholder: "Select clothing type"
+	placeholder: "Select clothing type",
+	allowClear: true
 	});
 
 	$('#colour').select2({
-	placeholder: "Select colour"
+	placeholder: "Select colour",
+	allowClear: true
 	});
 
 	$('#country').select2({
-	placeholder: "Select country"
+	placeholder: "Select country",
+	allowClear: true
 	});
 
 	$('#currency').select2({
-	placeholder: "Select currency"
+	placeholder: "Select currency",
+	allowClear: true
 	});
 
 	console.log( "ready!" );
