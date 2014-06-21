@@ -96,6 +96,8 @@ class SimpleForm(Form):
     )
     date_purchased = TextField('Date of Purchase',
     )
+    upload_url = TextField('Upload URL',
+    )
 
 
 class BrowseForm(Form):

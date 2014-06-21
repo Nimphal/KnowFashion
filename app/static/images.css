@@ -1,0 +1,16 @@
+.image-container {
+    display: inline-block;
+    width: 210px;
+    height: 230px;
+    border-style: ridge;
+    border-width: 3px;
+    border-color: #9F81F7;
+    margin: 5px;
+    font-size: 20px;
+}
+
+.image-container a img {
+    text-align: center;
+    width: 200px;
+    height: 200px;
+}

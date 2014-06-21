@@ -9,6 +9,7 @@ import os
 from app import app
 from form import SimpleForm, BrowseForm
 from datetime import datetime
+import requests
 
 from elasticsearch import Elasticsearch
 
@@ -18,6 +19,7 @@ es = Elasticsearch(hosts=[{'host': 'localhost', 'port': 9201}])
 @app.route('/', methods=['GET', 'POST'])
 def home_page():
     return render_template('home_page.html', title='KnowFashion Home')
+
 
 @app.route('/browse', methods=['GET', 'POST'])
 def browse():
@@ -38,13 +40,20 @@ def submit():
     if request.method == 'POST':  # and form.validate(): -- this doesn't validate, for whatever reason
 
         filename = ""
-        pic = request.files['upload']
+        if form.upload_url.data:
+            filename = form.clothing_type.data + '_' + form.country.data + '_' + form.brand.data + '_' + form.colour.data
+            f = open(os.path.join(app.config['UPLOADS_FOLDER'], filename), 'wb')
+            f.write(requests.get(form.upload_url.data).content)
+            f.close()
 
-        if not pic:
-            print 'not pic'
-        if pic and allowed_file(pic.filename):
-            filename = secure_filename(pic.filename)
-            pic.save(os.path.join(app.config['UPLOADS_FOLDER'], filename))
+        if request.files['upload']:
+            pic = request.files['upload']
+
+            if not pic:
+                print 'not pic'
+            if pic and allowed_file(pic.filename):
+                filename = secure_filename(pic.filename)
+                pic.save(os.path.join(app.config['UPLOADS_FOLDER'], filename))
 
         doc = {
             'title': form.colour.data + ' ' + form.clothing_type.data + ' ' + 'from ' + form.brand.data,
@@ -68,5 +77,4 @@ def submit():
 
 @app.route('/thankyou', methods=['GET', 'POST'])
 def thankyou():
-
     return render_template('thankyou.html', title='Thank you!')

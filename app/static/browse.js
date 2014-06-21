@@ -1,20 +1,20 @@
 $(document).ready(function() {
     $('#clothing_type').select2({
-	placeholder: "Select clothing type",
+	placeholder: "Clothing type",
 	allowClear: true
 	});
 
 	$('#colour').select2({
-	placeholder: "Select colour",
+	placeholder: "Colour",
 	allowClear: true
 	});
 
 	$('#country').select2({
-	placeholder: "Select country",
+	placeholder: "Country",
 	allowClear: true
 	});
 
-	url = 'http://localhost:9201/garments/_search'
+	url = 'http://sukoshi:9201/garments/_search'
 
 	$.ajax(url, {
             cache: false,
@@ -30,18 +30,34 @@ $(document).ready(function() {
                     };
 
                 for (var r=0; r<r_items.length; r++) {
-                    if(r_items[r]._source.pic_title !== 'undefined') {
+                    if(r_items[r]._source.pic_title) {
+                        $('<div class=image-container></div>')
+                        .append(
+                            $('<a href="#"><img src="/static/uploads/' + r_items[r]._source.pic_title + '" class="original"></a>')
+                        )
+                        .append(
+                            $('<br>')
+                        )
+                        .append(
+                            $('<span>' + r_items[r]._source.country + '</span>')
+                        )
+                        .appendTo('#image')
 
-                    $('<img src="/static/uploads/' + r_items[r]._source.pic_title + '"; class="original">').load(function() {
-                        $(this).width(150).height(150).appendTo('#images')});
-                    };
+                    }
+
                 };
+
+            $('.image-container img').click(function() {
+                alert('yay')
+            });
 
             }
         });
 
+
+
     $('#go').click(function(event) {
-        $("#images").html("");
+        $("#image").html("");
         event.preventDefault();
         console.log('go');
         ct = $('#clothing_type').val()
@@ -95,7 +111,7 @@ $(document).ready(function() {
         data = data + ']}}}}}'
         console.log(data)
 
-        url = 'http://localhost:9201/garments/_search'
+        url = 'http://sukoshi:9201/garments/_search'
         var results;
         console.log('go')
 
@@ -114,12 +130,26 @@ $(document).ready(function() {
                     };
 
                 for (var r=0; r<r_items.length; r++) {
-                    if(r_items[r]._source.pic_title !== 'undefined') {
+                    if(r_items[r]._source.pic_title) {
+                        $('<div class=image-container></div>')
+                        .append(
+                            $('<a href="#"><img src="/static/uploads/' + r_items[r]._source.pic_title + '" class="original"></a>')
+                        )
+                        .append(
+                            $('<br>')
+                        )
+                        .append(
+                            $('<span>' + r_items[r]._source.country + '</span>')
+                        )
+                        .appendTo('#image')
 
-                    $('<img src="/static/uploads/' + r_items[r]._source.pic_title + '"; class="original">').load(function() {
-                        $(this).width(150).height(150).appendTo('#images')});
-                    };
+                    }
+
                 };
+
+            $('.image-container img').click(function() {
+                alert('yay')
+            });
 
             }
         });
