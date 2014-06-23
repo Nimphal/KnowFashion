@@ -6,6 +6,13 @@ body {
     font-family: 'Indie Flower';
 
 }
+a:hover {
+    color: #9F81F7;
+    }
+
+p {
+    font-size: 22px;
+}
 
 .form-group {
     font-size: 20px;
@@ -183,5 +190,6 @@ a {
 .select2-chosen {
     font-family: 'Indie Flower';
     font-size: 20px;
-    
+
 }
+

@@ -73,6 +73,8 @@ $( document ).ready(function() {
         }}
         $('.image-container').click(function(event) {
             event.preventDefault();
+            $('#take-picture').val('');
+            $('#show-picture').hide();
             $('.image-container').css('border-color', '#9F81F7');
 
 
@@ -81,9 +83,21 @@ $( document ).ready(function() {
             $('#upload_url').parents().show();
         })
 
+
         $('#images').show();
 
        });
+    $('#upload_url').change(function() {
+            console.log('change');
+            $('#take-picture').val('');
+            $('#show-picture').hide();
+    });
+
+    $('#take-picture').change(function() {
+            console.log('change2');
+            $('#upload_url').val('');
+            $('#upload_url').hide();
+    });
 
 });
 

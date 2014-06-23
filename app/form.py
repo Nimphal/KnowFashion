@@ -90,6 +90,7 @@ class SimpleForm(Form):
                           choices=app.config['COUNTRY_CHOICES'],
     )
     price = DecimalField('Price',
+                         [validators.Optional()],
     )
     currency = SelectField('Currency',
                            choices=app.config['CURRENCY_CHOICES'],

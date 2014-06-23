@@ -10,6 +10,7 @@ from app import app
 from form import SimpleForm, BrowseForm
 from datetime import datetime
 import requests
+import json
 
 from elasticsearch import Elasticsearch
 
@@ -27,6 +28,15 @@ def browse():
     return render_template('browse.html',
                            title='Browse user uploaded things', form=form)
 
+@app.route('/about', methods=['GET', 'POST'])
+def about():
+    return render_template('about.html',
+                           title='About KnowFashion')
+
+@app.route('/contact', methods=['GET', 'POST'])
+def contact():
+    return render_template('contact.html',
+                           title='Contact')
 
 def allowed_file(filename):
     return '.' in filename and \
@@ -37,18 +47,15 @@ def allowed_file(filename):
 def submit():
     form = SimpleForm(request.form)
 
-    if request.method == 'POST':  # and form.validate(): -- this doesn't validate, for whatever reason
-
+    if request.method == 'POST' and form.validate(): #-- this doesn't validate, for whatever reason
         filename = ""
         if form.upload_url.data:
             filename = form.clothing_type.data + '_' + form.country.data + '_' + form.brand.data + '_' + form.colour.data
             f = open(os.path.join(app.config['UPLOADS_FOLDER'], filename), 'wb')
             f.write(requests.get(form.upload_url.data).content)
             f.close()
-
-        if request.files['upload']:
+        elif request.files['upload']:
             pic = request.files['upload']
-
             if not pic:
                 print 'not pic'
             if pic and allowed_file(pic.filename):
@@ -71,6 +78,7 @@ def submit():
 
         res = es.index(index="garments", doc_type='item', id=doc_id, body=doc)
         return redirect(url_for('thankyou'))
+    print json.dumps(form.errors, indent=3)
 
     return render_template('submit.html', title='Submit new artcile', form=form)
 
