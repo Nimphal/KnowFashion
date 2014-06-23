@@ -4,7 +4,6 @@ from flask import Flask, Response, request, abort, render_template_string, send_
 from PIL import Image
 import StringIO
 from werkzeug.utils import secure_filename
-from flask.ext.uploads import delete, init, save, Upload
 import os
 from app import app
 from form import SimpleForm, BrowseForm
