@@ -52,3 +52,11 @@ coverage.xml
 # Sphinx documentation
 docs/_build/
 
+# Spike code
+spike_flask/
+
+# Test uploads
+app/static/uploads
+
+.idea
+venv/
