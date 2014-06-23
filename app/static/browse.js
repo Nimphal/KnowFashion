@@ -14,7 +14,7 @@ $(document).ready(function() {
 	allowClear: true
 	});
 
-	url = 'http://sukoshi:9201/garments/_search'
+	url = current_domain + ':9201/garments/_search'
 
 	$.ajax(url, {
             cache: false,
@@ -111,7 +111,7 @@ $(document).ready(function() {
         data = data + ']}}}}}'
         console.log(data)
 
-        url = 'http://sukoshi:9201/garments/_search'
+        url = current_domain + ':9201/garments/_search'
         var results;
         console.log('go')
 
