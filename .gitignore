@@ -56,7 +56,8 @@ docs/_build/
 spike_flask/
 
 # Test uploads
-app/static/uploads
+app/static/uploads/*
+!app/static/uploads/.gitkeep
 
 .idea
 venv/
