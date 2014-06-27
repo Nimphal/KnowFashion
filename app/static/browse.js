@@ -35,7 +35,7 @@ $(document).ready(function() {
                     if(r_items[r]._source.pic_title) {
                         $('<div class=image-container></div>')
                         .append(
-                            $('<a href="#"><img src="/static/uploads/' + r_items[r]._source.pic_title + '" class="original"></a>')
+                            $('<a href="#"><img src="/static/uploads/' + r_items[r]._source.pic_title +'" class="original" data-color="' + r_items[r]._source.colour +'"data-country="' + r_items[r]._source.country + '"data-brand="' + r_items[r]._source.brand +'"data-clothingtype="' + r_items[r]._source.clothing_type + '"></a>')
                         )
                         .append(
                             $('<br>')
