@@ -91,12 +91,14 @@ $( document ).ready(function() {
             console.log('change');
             $('#take-picture').val('');
             $('#show-picture').hide();
+            $('#images').hide();
     });
 
     $('#take-picture').change(function() {
             console.log('change2');
             $('#upload_url').val('');
             $('#upload_url').hide();
+            $('#images').hide();
     });
 
 });

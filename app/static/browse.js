@@ -15,6 +15,8 @@ $(document).ready(function() {
 	});
 
 	url = current_scheme + '//' + current_domain + ':9201/garments/_search'
+	r_items = []
+	console.log(url);
 
 	$.ajax(url, {
             cache: false,
@@ -48,8 +50,14 @@ $(document).ready(function() {
                 };
 
             $('.image-container img').click(function() {
-                alert('yay')
+                $.colorbox({html:'<img src="' + $(this).prop('src') + '" style= "height: 400px; padding: 10px;"><div style="display: inline-block; font-size: 20px;"><span>' + '<br>' + $(this).attr('data-brand') + '<br>' + $(this).attr('data-color') +' ' + $(this).attr('data-clothingtype') + '<br> from ' + $(this).attr('data-country') + '</span></div>',
+                            width: '500px',
+                            height: '500px',
+                            transition: 'elastic',
+                            fadeOut: 200
+                });
             });
+
 
             }
         });
@@ -124,7 +132,7 @@ $(document).ready(function() {
                 results = data;
                 console.log( results );
                 console.log( 'yes' );
-                var r_items = [];
+                r_items = [];
                 for (var i=0; i<results.hits.hits.length; i++) {
                     r_items.push(results.hits.hits[i]);
                     };
@@ -133,27 +141,33 @@ $(document).ready(function() {
                     if(r_items[r]._source.pic_title) {
                         $('<div class=image-container></div>')
                         .append(
-                            $('<a href="#"><img src="/static/uploads/' + r_items[r]._source.pic_title + '" class="original"></a>')
+                            $('<a href="#"><img src="/static/uploads/' + r_items[r]._source.pic_title +'" class="original" data-color="' + r_items[r]._source.colour +'"data-country="' + r_items[r]._source.country + '"data-brand="' + r_items[r]._source.brand +'"data-clothingtype="' + r_items[r]._source.clothing_type + '"></a>')
                         )
                         .append(
                             $('<br>')
                         )
                         .append(
-                            $('<span>' + r_items[r]._source.country + '</span>')
+                            $('<span>' + r_items[r]._source.country + '</span><br>')
                         )
                         .appendTo('#image')
 
                     }
 
-                };
 
+                };
             $('.image-container img').click(function() {
-                alert('yay')
+                $.colorbox({html:'<img src="' + $(this).prop('src') + '" style= "height: 400px; padding: 10px;"><div style="display: inline-block; font-size: 20px;"><span>' + '<br>' + $(this).attr('data-brand') + '<br>' + $(this).attr('data-color') +' ' + $(this).attr('data-clothingtype') + '<br> from ' + $(this).attr('data-country') + '</span></div>',
+                            width: '500px',
+                            height: '500px',
+                            transition: 'elastic',
+                            fadeOut: 200
+                });
             });
 
             }
         });
     });
 });
+
 
 
