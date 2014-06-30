@@ -14,7 +14,7 @@ $(document).ready(function() {
 	allowClear: true
 	});
 
-	url = current_scheme + '//' + current_domain + ':9201/garments/_search'
+	url = current_scheme + '//' + current_domain + ':9201/garments/_search?size=100'
 	r_items = []
 	console.log(url);
 
@@ -119,7 +119,7 @@ $(document).ready(function() {
         data = data + ']}}}}}'
         console.log(data)
 
-        url = current_scheme + '//' + current_domain + ':9201/garments/_search'
+        url = current_scheme + '//' + current_domain + ':9201/garments/_search?size=100'
         var results;
         console.log('go')
 
