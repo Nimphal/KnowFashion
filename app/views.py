@@ -2,12 +2,10 @@ __author__ = 'nevelina'
 from flask import render_template, flash, redirect, request, url_for
 from flask import Flask, Response, request, abort, render_template_string, send_from_directory
 from PIL import Image
-import StringIO
 from werkzeug.utils import secure_filename
 import os
 from app import app
 from form import SimpleForm, BrowseForm
-from datetime import datetime
 import requests
 import json
 
@@ -60,6 +58,12 @@ def submit():
             if pic and allowed_file(pic.filename):
                 filename = secure_filename(pic.filename)
                 pic.save(os.path.join(app.config['UPLOADS_FOLDER'], filename))
+                img = app.config['UPLOADS_FOLDER'] + '/' + filename
+                im1 = Image.open(img)
+                width = 250
+                height = 350
+                im5 = im1.resize((width, height), Image.ANTIALIAS)
+                im5.save(os.path.join(app.config['UPLOADS_FOLDER'], filename))
 
         doc = {
             'title': form.colour.data + ' ' + form.clothing_type.data + ' ' + 'from ' + form.brand.data,
