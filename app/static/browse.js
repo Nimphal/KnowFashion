@@ -161,8 +161,7 @@ $(document).ready(function() {
                             maxHeight: '95%',
                             transition: 'elastic',
                             fadeOut: 200,
-                            reposition: false,
-                            top: 100px
+                            reposition: false
                 });
 
 
