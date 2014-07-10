@@ -89,3 +89,7 @@ def submit():
 @app.route('/thankyou', methods=['GET', 'POST'])
 def thankyou():
     return render_template('thankyou.html', title='Thank you!')
+
+@app.route('/data', methods=['GET', 'POST'])
+def data():
+    return render_template('data_page.html', title='Get the data!')

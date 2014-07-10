@@ -156,13 +156,18 @@ $(document).ready(function() {
 
                 };
             $('.image-container img').click(function() {
-                $.colorbox({html:'<img src="' + $(this).prop('src') + '" style= "height: 400px; padding: 10px;"><div style="display: inline-block; font-size: 20px;"><span>' + '<br>' + $(this).attr('data-brand') + '<br>' + $(this).attr('data-color') +' ' + $(this).attr('data-clothingtype') + '<br> from ' + $(this).attr('data-country') + '</span></div>',
-                            width: '500px',
-                            height: '500px',
+                $.colorbox({html:'<img src="' + $(this).prop('src') + '" style= "height: 300px; padding: 10px;"><div style="display: inline-block; font-size: 20px;"><span>' + '<br>' + $(this).attr('data-brand') + '<br>' + $(this).attr('data-color') +' ' + $(this).attr('data-clothingtype') + '<br> from ' + $(this).attr('data-country') + '</span></div>',
+                            maxWidth: '95%',
+                            maxHeight: '95%',
                             transition: 'elastic',
-                            fadeOut: 200
+                            fadeOut: 200,
+                            reposition: false,
+                            top: 100px
                 });
+
+
             });
+
 
             }
         });

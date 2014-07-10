@@ -1,0 +1,72 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container">
+    <h1>Getting the data</h1>
+    <p>The Elasticsearch server can be found at <a href="http://knowfashion.io:9201/garments/_search">http://knowfashion.io:9201/garments/_search</a>
+    It is a standard ES url so you can add parameters such as search size by just tagging them on the url, for example if you want to
+    get the first 100 results in stead of the first 10, you need to add the size parameter as follows:
+    <a href="http://knowfashion.io:9201/garments/_search?size=100">http://knowfashion.io:9201/garments/_search?size=100</a></p>
+
+    <p>You can make requests to this url in whatever way to you like. I use Python for most of my programming needs so the example
+    below is using Python's Requests library (which is magic). A request to the main url will return the whole index. If you want
+    to narrow it down you will need to forge a query.</p>
+
+    <code><p>import requests
+          <p>import json
+
+            <p>url = "http://knowfashion.io:9201/garments/_search?size=100"
+            <p>query = {"query":{"filtered":{"query":{"match_all":{}},"filter":{"bool":{"must":[{"term":{"clothing_type":"trousers"}}]}}}}}
+
+            <p>r = requests.post(url, data=json.dumps(query))
+
+            <p>#if you want to see your results
+
+            <p>r.json()
+    </code>
+
+    <p>You probably want some more help when it comes to building the query. The main part of the query is standard:</p>
+    <code>
+        <p>{
+            <p>"query":{
+                <p>"filtered":{
+                   <p>"query":{
+                        <p>"match_all":{}},
+                            <p>"filter":{
+                                <p>"bool":{
+                                    <p>"must":[
+    </code>
+
+    <p>At this stage you can begin adding on the terms you want to query for. The fields you acn query are <code>country</code>,
+    <code>colour</code>, <code>clothing_type</code>, <code>brand</code>, <code>store</code>, <code>price</code>. Each term part of the query
+    looks like this <code>{"term":{"clothing_type":"trousers"}}</code>. So the complete query for trousers looks like this:</p>
+    <code>
+        <p>{
+            <p>"query":{
+                <p>"filtered":{
+                    <p>"query":{
+                        <p>"match_all":{}},
+                            <p>"filter":{
+                                <p>"bool":{
+                                    <p>"must":[{
+                                        <p>"term":{
+                                            <p>"clothing_type":"trousers"}}]}}}}}
+    </code>
+    <p>You can tag on more search terms and will look like this:</p>
+    <code>
+        <p>{
+            <p>"must":[{
+                <p>"term":{
+                    <p>"clothing_type":"trousers"}
+                        <p>},
+                <p>{
+                <p>"term":{
+                    <p>"colour":"navy"}
+                        <p>}
+
+                    <p>]
+                <p>}
+    </code>
+
+    <p>This should get you started on getting data out of KnowFashion. If you need more help, feel free to contact <a href="mailto:nevelina@cottagelabs.com">nevelina@cottagelabs.com</a></p>
+</div>
+{% endblock %}
