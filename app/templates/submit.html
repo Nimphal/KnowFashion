@@ -14,12 +14,19 @@
             <div class="row">
                 <div class="col-sm-4 col-md-offset-2">
                     <div class="form-group input-lg">
+                        <div class="input-group">
                         {{form.brand(class="form-control", placeholder="Brand")}}
+                        <span id="brand_tool" class="input-group-addon glyphicon glyphicon-question-sign" style="top: 0; background-color: white;"></span>
+                        </div>
                     </div>
+
                 </div>
                 <div class="col-sm-4">
                     <div class="form-group input-lg">
+                        <div class="input-group">
                         {{form.clothing_type(class="form-control", placeholder="Clothing type")}}
+                        <span id="clothing_type_tool" class="input-group-addon glyphicon glyphicon-question-sign" style="top: 0; background-color: white;"></span>
+                        </div>
                     </div>
 
                 </div>
@@ -28,13 +35,18 @@
             <div class="row">
                  <div class="col-sm-4 col-md-offset-2">
                     <div class="form-group input-lg">
-
+                         <div class="input-group">
                          {{form.country(class="form-control", placeholder="Country")}}
-                     </div>
+                        <span id="country_tool" class="input-group-addon glyphicon glyphicon-question-sign" style="top: 0; background-color: white;"></span>
+                        </div>
+                    </div>
                  </div>
                 <div class="col-sm-4">
                     <div class="form-group input-lg">
+                        <div class="input-group">
                          {{form.colour(class="form-control", placeholder="Colour")}}
+                        <span id="colour_tool" class="input-group-addon glyphicon glyphicon-question-sign" style="top: 0; background-color: white;"></span>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -42,27 +54,37 @@
             <div class="row">
                  <div class="col-sm-8 col-md-offset-2">
                     <div class="form-group input-lg">
+                        <div class="input-group">
                         {{form.upload_url(class="form-control", placeholder="Link")}}
-                     </div>
+                        <span id="link_tool" class="input-group-addon glyphicon glyphicon-question-sign" style="top: 0; background-color: white;"></span>
+                        </div>
+                    </div>
                  </div>
             </div>
             <div class="row">
                  <div class="col-sm-3 col-md-offset-2">
                     <div class="form-group input-lg">
                         Upload a picture:
-                        <input type="file" name="upload" id="take-picture" accept="image/*;capture=camera">
+
+                        <input type="file" name="upload" id="take-picture" accept="image/*;capture=camera" data-toggle="tooltip" data-placement="top" title="Snap a new photo or upload an old one">
+
+
                     </div>
                  </div>
                  <div class="col-sm-2">
                      <div class="form-group input-lg">
                          <br>
-                         <button type="submit" id="google" class="btn btn-default btn-md">Try Google</button>
+                         <div class="input-group">
+                         <button type="submit" id="google" class="btn btn-default btn-md" data-toggle="tooltip" data-placement="top" title="Use the info you entered in the form to perform a Google search">Try Google</button>
+                         </div>
                      </div>
                  </div>
                  <div class="col-sm-2">
                      <div class="form-group input-lg">
                          <br>
-                         <button type="submit" id="link" class="btn btn-default btn-md">Link to picture</button>
+                         <div class="input-group">
+                         <button type="submit" id="link" class="btn btn-default btn-md" data-toggle="tooltip" data-placement="top" title="Share a link to a picture on the web">Link to picture</button>
+                         </div>
                      </div>
                  </div>
             </div>
@@ -92,7 +114,10 @@
             <div class="row">
                 <div class="col-sm-8 col-md-offset-2">
                         <div class="form-group input-lg">
+                            <div class="input-group">
                             {{form.store(class="form-control", placeholder="Store")}}
+                            <span id="store_tool" class="input-group-addon glyphicon glyphicon-question-sign" style="top: 0; background-color: white;"></span>
+                            </div>
                         </div>
                 </div>
             </div>
@@ -101,14 +126,18 @@
             <div class="row">
                  <div class="col-sm-4 col-md-offset-2">
                     <div class="form-group input-lg">
-
+                        <div class="input-group">
                         {{form.price(class="form-control", placeholder="Price")}}
+                        <span id="price_tool" class="input-group-addon glyphicon glyphicon-question-sign" style="top: 0; background-color: white;"></span>
+                        </div>
                     </div>
                  </div>
                  <div class="col-sm-4">
                      <div class="form-group input-lg">
-
+                        <div class="input-group">
                         {{form.currency(class="form-control", placeholder="Currency")}}
+                         <span id="currency_tool" class="input-group-addon glyphicon glyphicon-question-sign" style="top: 0; background-color: white;"></span>
+                        </div>
                      </div>
                  </div>
             </div>

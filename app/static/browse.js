@@ -14,6 +14,8 @@ $(document).ready(function() {
 	allowClear: true
 	});
 
+	$('#go').tooltip();
+
 	url = current_scheme + '//' + current_domain + ':9201/garments/_search?size=100'
 	r_items = []
 	console.log(url);
@@ -21,7 +23,7 @@ $(document).ready(function() {
 	$.ajax(url, {
             cache: false,
             dataType: 'json',
-            type: 'POST',
+            type: 'GET',
             success: function (data, status, jqXHR) {
                 results = data;
                 console.log( results );
@@ -126,7 +128,7 @@ $(document).ready(function() {
         $.ajax(url, {
             cache: false,
             dataType: 'json',
-            type: 'POST',
+            type: 'GET',
             data: data,
             success: function (data, status, jqXHR) {
                 results = data;

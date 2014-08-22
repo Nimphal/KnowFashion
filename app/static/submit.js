@@ -17,6 +17,95 @@ $( document ).ready(function() {
 	allowClear: true
 	});
 
+	$('#brand_tool').qtip({
+            content: {
+                text: 'Who made it?'   },
+            style: { classes:  "qtip-tipsy" },
+            position: {
+            my: 'bottom left',
+            at: 'top left',
+            target: $('#brand_tool')
+         }
+    })
+
+	$('#clothing_type_tool').qtip({
+        content: {
+            text: 'What sort of clothing is it?'
+            },
+            style: { classes:  "qtip-tipsy" },
+            position: {
+            my: 'bottom left',
+            at: 'top left',
+            target: $('#clothing_type_tool')
+         }
+    })
+
+    $('#colour_tool').qtip({
+        content: {
+            text: 'Blue? No, green. No, blue. Green!'
+                },
+        style: { classes:  "qtip-tipsy" },
+        position: {
+            my: 'bottom left',
+            at: 'top left',
+            target: $('#colour_tool')
+         }
+
+    })
+
+    $('#country_tool').qtip({
+        content: {
+            text: 'Where was it made?'
+            },
+            style: { classes:  "qtip-tipsy" },
+            position: {
+            my: 'bottom left',
+            at: 'top left',
+            target: $('#country_tool')
+         }
+    })
+
+    $('#currency_tool').qtip({
+        content: {
+            text: 'What sort of money did you pay for it?'
+            },
+            style: { classes:  "qtip-tipsy" },
+            position: {
+            my: 'bottom left',
+            at: 'top left',
+            target: $('#currency_tool')
+         }
+    })
+
+    $('#store_tool').qtip({
+        content: {
+            text: 'Where did you get it from?'
+             },
+            style: { classes:  "qtip-tipsy" },
+            position: {
+            my: 'bottom left',
+            at: 'top left',
+            target: $('#store_tool')
+         }
+    })
+
+    $('#price_tool').qtip({
+            content: {
+                text: 'How much did you pay for it?'   },
+            style: { classes:  "qtip-tipsy"  },
+            position: {
+            my: 'bottom left',
+            at: 'top left',
+            target: $('#price_tool')
+         }
+    })
+
+    $('#google').tooltip();
+    $('#link').tooltip();
+    $('#take-picture').tooltip();
+
+
+
     $('#images').hide();
     $('#show-picture').hide();
     $('#upload_url').parent().hide();
